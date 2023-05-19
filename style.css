@@ -1,0 +1,182 @@
+:root {
+  --clr-button: hsl(158, 36%, 37%);
+  --clr-hover-button: hsl(158, 36%, 20%);
+  --clr-bg: hsl(30, 38%, 92%);
+
+  --clr-dark-blue: hsl(212, 21%, 14%);
+  --clr-grayish-blue: hsl(228, 12%, 48%);
+  --clr-white: hsl(0, 0%, 100%);
+
+  --ff-title: "Fraunces", serif;
+  --ff-text: "Montserrat", sans-serif;
+
+  --fw-regular: 500;
+  --fw-bold: 700;
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1;
+}
+
+/* General Styling */
+
+body {
+  font-family: var(--ff-text);
+  font-weight: var(--fw-regular);
+  font-size: 0.875rem;
+  color: var(--clr-grayish-blue);
+  background-color: var(--clr-bg);
+
+  display: grid;
+  place-content: center;
+  margin: 1rem;
+}
+
+.card {
+  background-color: var(--clr-white);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: grid;
+  max-width: 600px;
+}
+
+@media (min-width: 600px) {
+  .card {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .card-content {
+    padding: 2rem;
+  }
+}
+
+.card-content {
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.category {
+  letter-spacing: 5px;
+  font-size: 0.8125rem;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-family: var(--ff-title);
+  color: var(--clr-dark-blue);
+}
+
+.price {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.discounted-price {
+  font-size: 1.8rem;
+  font-family: var(--ff-title);
+  color: var(--clr-button);
+}
+
+.button {
+  cursor: pointer;
+  padding: 0.75em 1.5em;
+  border: 0;
+  border-radius: 0.5rem;
+  background-color: var(--clr-button);
+  color: var(--clr-white);
+  font-weight: var(--fw-bold);
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.button[data-icon="shopping-cart"]::before {
+  content: "";
+  width: 15px;
+  height: 16px;
+  background-image: url(images/icon-cart.svg);
+}
+
+.button:is(:hover, :focus) {
+  background-color: var(--clr-hover-button);
+}
